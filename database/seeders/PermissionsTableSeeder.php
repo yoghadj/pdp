@@ -11,310 +11,311 @@ class PermissionsTableSeeder extends Seeder
     {
         $permissions = [
             [
-                'id'    => 1,
+                //'id'    => 1,
                 'title' => 'user_management_access',
             ],
             [
-                'id'    => 2,
+                //'id'    => 2,
                 'title' => 'permission_create',
             ],
             [
-                'id'    => 3,
+                //'id'    => 3,
                 'title' => 'permission_edit',
             ],
             [
-                'id'    => 4,
+                //'id'    => 4,
                 'title' => 'permission_show',
             ],
             [
-                'id'    => 5,
+                //'id'    => 5,
                 'title' => 'permission_delete',
             ],
             [
-                'id'    => 6,
+                //'id'    => 6,
                 'title' => 'permission_access',
             ],
             [
-                'id'    => 7,
+                //'id'    => 7,
                 'title' => 'role_create',
             ],
             [
-                'id'    => 8,
+                //'id'    => 8,
                 'title' => 'role_edit',
             ],
             [
-                'id'    => 9,
+                //'id'    => 9,
                 'title' => 'role_show',
             ],
             [
-                'id'    => 10,
+                //'id'    => 10,
                 'title' => 'role_delete',
             ],
             [
-                'id'    => 11,
+                //'id'    => 11,
                 'title' => 'role_access',
             ],
             [
-                'id'    => 12,
+                //'id'    => 12,
                 'title' => 'user_create',
             ],
             [
-                'id'    => 13,
+                //'id'    => 13,
                 'title' => 'user_edit',
             ],
             [
-                'id'    => 14,
+                //'id'    => 14,
                 'title' => 'user_show',
             ],
             [
-                'id'    => 15,
+                //'id'    => 15,
                 'title' => 'user_delete',
             ],
             [
-                'id'    => 16,
+                //'id'    => 16,
                 'title' => 'user_access',
             ],
             [
-                'id'    => 17,
+                //'id'    => 17,
                 'title' => 'ropa_create',
             ],
             [
-                'id'    => 18,
+                //'id'    => 18,
                 'title' => 'ropa_edit',
             ],
             [
-                'id'    => 19,
+                //'id'    => 19,
                 'title' => 'ropa_show',
             ],
             [
-                'id'    => 20,
+                //'id'    => 20,
                 'title' => 'ropa_delete',
             ],
             [
-                'id'    => 21,
+                //'id'    => 21,
                 'title' => 'ropa_access',
             ],
             [
-                'id'    => 22,
+                //'id'    => 22,
                 'title' => 'audit_log_show',
             ],
             [
-                'id'    => 23,
+                //'id'    => 23,
                 'title' => 'audit_log_access',
             ],
             [
-                'id'    => 24,
+                //'id'    => 24,
                 'title' => 'reference_access',
             ],
             [
-                'id'    => 25,
+                //'id'    => 25,
                 'title' => 'organization_create',
             ],
             [
-                'id'    => 26,
+                //'id'    => 26,
                 'title' => 'organization_edit',
             ],
             [
-                'id'    => 27,
+                //'id'    => 27,
                 'title' => 'organization_show',
             ],
             [
-                'id'    => 28,
+                //'id'    => 28,
                 'title' => 'organization_delete',
             ],
             [
-                'id'    => 29,
+                //'id'    => 29,
                 'title' => 'organization_access',
             ],
             [
-                'id'    => 30,
+                //'id'    => 30,
                 'title' => 'cenderung_create',
             ],
             [
-                'id'    => 31,
+                //'id'    => 31,
                 'title' => 'cenderung_edit',
             ],
             [
-                'id'    => 32,
+                //'id'    => 32,
                 'title' => 'cenderung_show',
             ],
             [
-                'id'    => 33,
+                //'id'    => 33,
                 'title' => 'cenderung_delete',
             ],
             [
-                'id'    => 34,
+                //'id'    => 34,
                 'title' => 'cenderung_access',
             ],
             [
-                'id'    => 35,
+                //'id'    => 35,
                 'title' => 'dampak_create',
             ],
             [
-                'id'    => 36,
+                //'id'    => 36,
                 'title' => 'dampak_edit',
             ],
             [
-                'id'    => 37,
+                //'id'    => 37,
                 'title' => 'dampak_show',
             ],
             [
-                'id'    => 38,
+                //'id'    => 38,
                 'title' => 'dampak_delete',
             ],
             [
-                'id'    => 39,
+                //'id'    => 39,
                 'title' => 'dampak_access',
             ],
             [
-                'id'    => 40,
+                //'id'    => 40,
                 'title' => 'cenderung_dampak_create',
             ],
             [
-                'id'    => 41,
+                //'id'    => 41,
                 'title' => 'cenderung_dampak_edit',
             ],
             [
-                'id'    => 42,
+                //'id'    => 42,
                 'title' => 'cenderung_dampak_show',
             ],
             [
-                'id'    => 43,
+                //'id'    => 43,
                 'title' => 'cenderung_dampak_delete',
             ],
             [
-                'id'    => 44,
+                //'id'    => 44,
                 'title' => 'cenderung_dampak_access',
             ],
             [
-                'id'    => 45,
+                //'id'    => 45,
                 'title' => 'penanganan_create',
             ],
             [
-                'id'    => 46,
+                //'id'    => 46,
                 'title' => 'penanganan_edit',
             ],
             [
-                'id'    => 47,
+                //'id'    => 47,
                 'title' => 'penanganan_show',
             ],
             [
-                'id'    => 48,
+                //'id'    => 48,
                 'title' => 'penanganan_delete',
             ],
             [
-                'id'    => 49,
+                //'id'    => 49,
                 'title' => 'penanganan_access',
             ],
             [
-                'id'    => 50,
+                //'id'    => 50,
                 'title' => 'pium_access',
             ],
             [
-                'id'    => 51,
+                //'id'    => 51,
                 'title' => 'kategori_create',
             ],
             [
-                'id'    => 52,
+                //'id'    => 52,
                 'title' => 'kategori_edit',
             ],
             [
-                'id'    => 53,
+                //'id'    => 53,
                 'title' => 'kategori_show',
             ],
             [
-                'id'    => 54,
+                //'id'    => 54,
                 'title' => 'kategori_delete',
             ],
             [
-                'id'    => 55,
+                //'id'    => 55,
                 'title' => 'kategori_access',
             ],
             [
-                'id'    => 56,
+                //'id'    => 56,
                 'title' => 'assess_create',
             ],
             [
-                'id'    => 57,
+                //'id'    => 57,
                 'title' => 'assess_edit',
             ],
             [
-                'id'    => 58,
+                //'id'    => 58,
                 'title' => 'assess_show',
             ],
             [
-                'id'    => 59,
+                //'id'    => 59,
                 'title' => 'assess_delete',
             ],
             [
-                'id'    => 60,
+                //'id'    => 60,
                 'title' => 'assess_access',
             ],
             [
-                'id'    => 61,
+                //'id'    => 61,
                 'title' => 'content_management_access',
             ],
             [
-                'id'    => 62,
+                //'id'    => 62,
                 'title' => 'content_category_create',
             ],
             [
-                'id'    => 63,
+                //'id'    => 63,
                 'title' => 'content_category_edit',
             ],
             [
-                'id'    => 64,
+                //'id'    => 64,
                 'title' => 'content_category_show',
             ],
             [
-                'id'    => 65,
+                //'id'    => 65,
                 'title' => 'content_category_delete',
             ],
             [
-                'id'    => 66,
+                //'id'    => 66,
                 'title' => 'content_category_access',
             ],
             [
-                'id'    => 67,
+                //'id'    => 67,
                 'title' => 'content_tag_create',
             ],
             [
-                'id'    => 68,
+                //'id'    => 68,
                 'title' => 'content_tag_edit',
             ],
             [
-                'id'    => 69,
+                //'id'    => 69,
                 'title' => 'content_tag_show',
             ],
             [
-                'id'    => 70,
+                //'id'    => 70,
                 'title' => 'content_tag_delete',
             ],
             [
-                'id'    => 71,
+                //'id'    => 71,
                 'title' => 'content_tag_access',
             ],
             [
-                'id'    => 72,
+                //'id'    => 72,
                 'title' => 'content_page_create',
             ],
             [
-                'id'    => 73,
+                //'id'    => 73,
                 'title' => 'content_page_edit',
             ],
             [
-                'id'    => 74,
+                //'id'    => 74,
                 'title' => 'content_page_show',
             ],
             [
-                'id'    => 75,
+                //'id'    => 75,
                 'title' => 'content_page_delete',
             ],
             [
-                'id'    => 76,
+                //'id'    => 76,
                 'title' => 'content_page_access',
             ],
             [
+
                 'id'    => 77,
                 'title' => 'employee_create',
             ],

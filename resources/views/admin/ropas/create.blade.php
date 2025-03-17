@@ -9,6 +9,9 @@
     <div class="card-body">
         <form method="POST" action="{{ route("admin.ropas.store") }}" enctype="multipart/form-data">
             @csrf
+
+
+
             <div class="form-group">
                 <label class="required" for="unit_kerja">{{ trans('cruds.ropa.fields.unit_kerja') }}</label>
                 <input class="form-control {{ $errors->has('unit_kerja') ? 'is-invalid' : '' }}" type="text" name="unit_kerja" id="unit_kerja" value="{{ old('unit_kerja', '') }}" required>

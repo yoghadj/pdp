@@ -7,6 +7,7 @@ use App\Http\Requests\MassDestroyRopaRequest;
 use App\Http\Requests\StoreRopaRequest;
 use App\Http\Requests\UpdateRopaRequest;
 use App\Models\Ropa;
+use App\Models\Organization;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,6 +27,7 @@ class RopaController extends Controller
     {
         abort_if(Gate::denies('ropa_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        $data['organization'] = Organization::pluck('name','code');
         return view('admin.ropas.create');
     }
 
