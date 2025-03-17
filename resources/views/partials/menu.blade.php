@@ -96,8 +96,8 @@
                     </li>
                 @endcan
                 @can('reference_access')
-                    <li class="nav-item has-treeview {{ request()->is("admin/organizations*") ? "menu-open" : "" }} {{ request()->is("admin/cenderungs*") ? "menu-open" : "" }} {{ request()->is("admin/dampaks*") ? "menu-open" : "" }} {{ request()->is("admin/cenderung-dampaks*") ? "menu-open" : "" }} {{ request()->is("admin/penanganans*") ? "menu-open" : "" }}">
-                        <a class="nav-link nav-dropdown-toggle {{ request()->is("admin/organizations*") ? "active" : "" }} {{ request()->is("admin/cenderungs*") ? "active" : "" }} {{ request()->is("admin/dampaks*") ? "active" : "" }} {{ request()->is("admin/cenderung-dampaks*") ? "active" : "" }} {{ request()->is("admin/penanganans*") ? "active" : "" }}" href="#">
+                    <li class="nav-item has-treeview {{ request()->is("admin/organizations*") ? "menu-open" : "" }} {{ request()->is("admin/cenderungs*") ? "menu-open" : "" }} {{ request()->is("admin/dampaks*") ? "menu-open" : "" }} {{ request()->is("admin/cenderung-dampaks*") ? "menu-open" : "" }} {{ request()->is("admin/penanganans*") ? "menu-open" : "" }} {{ request()->is("admin/employees*") ? "menu-open" : "" }}">
+                        <a class="nav-link nav-dropdown-toggle {{ request()->is("admin/organizations*") ? "active" : "" }} {{ request()->is("admin/cenderungs*") ? "active" : "" }} {{ request()->is("admin/dampaks*") ? "active" : "" }} {{ request()->is("admin/cenderung-dampaks*") ? "active" : "" }} {{ request()->is("admin/penanganans*") ? "active" : "" }} {{ request()->is("admin/employees*") ? "active" : "" }}" href="#">
                             <i class="fa-fw nav-icon fas fa-cogs">
 
                             </i>
@@ -163,6 +163,18 @@
                                         </i>
                                         <p>
                                             {{ trans('cruds.penanganan.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('employee_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.employees.index") }}" class="nav-link {{ request()->is("admin/employees") || request()->is("admin/employees/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon fas fa-users">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.employee.title') }}
                                         </p>
                                     </a>
                                 </li>
