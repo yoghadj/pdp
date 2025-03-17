@@ -9,9 +9,6 @@
     <div class="card-body">
         <form method="POST" action="{{ route("admin.ropas.store") }}" enctype="multipart/form-data">
             @csrf
-
-
-
             <div class="form-group">
                 <label class="required" for="unit_kerja">{{ trans('cruds.ropa.fields.unit_kerja') }}</label>
                 <input class="form-control {{ $errors->has('unit_kerja') ? 'is-invalid' : '' }}" type="text" name="unit_kerja" id="unit_kerja" value="{{ old('unit_kerja', '') }}" required>
@@ -717,19 +714,6 @@
                     <span class="text-danger">{{ $errors->first('join_pic') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.ropa.fields.join_pic_helper') }}</span>
-            </div>
-            <div class="form-group">
-                <label class="required">{{ trans('cruds.ropa.fields.status') }}</label>
-                <select class="form-control {{ $errors->has('status') ? 'is-invalid' : '' }}" name="status" id="status" required>
-                    <option value disabled {{ old('status', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
-                    @foreach(App\Models\Ropa::STATUS_SELECT as $key => $label)
-                        <option value="{{ $key }}" {{ old('status', '') === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
-                    @endforeach
-                </select>
-                @if($errors->has('status'))
-                    <span class="text-danger">{{ $errors->first('status') }}</span>
-                @endif
-                <span class="help-block">{{ trans('cruds.ropa.fields.status_helper') }}</span>
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">

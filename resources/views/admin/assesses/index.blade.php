@@ -35,58 +35,7 @@
                             {{ trans('cruds.assess.fields.risiko') }}
                         </th>
                         <th>
-                            {{ trans('cruds.assess.fields.nilai_kemungkinan') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.assess.fields.nilai_dampak') }}
-                        </th>
-                        <th>
                             {{ trans('cruds.assess.fields.total') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.assess.fields.tindakan_pengendalian') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.assess.fields.nilai_kontrol_kemungkinan') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.assess.fields.nilai_kontrol_dampak') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.assess.fields.nilai_kontrol_total') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.assess.fields.tindakan') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.assess.fields.tinjut_penanganan') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.assess.fields.persetujuan_tindakan') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.assess.fields.target_penyelesaian') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.assess.fields.status') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.assess.fields.penanggung_jawab') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.assess.fields.nilai_residu_kemungkinan') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.assess.fields.nilai_residu_dampak') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.assess.fields.nilai_residu_total') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.assess.fields.tindakan_residu') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.assess.fields.tinjut_residual') }}
                         </th>
                         <th>
                             &nbsp;
@@ -112,58 +61,7 @@
                                 {{ $assess->risiko ?? '' }}
                             </td>
                             <td>
-                                {{ $assess->nilai_kemungkinan->nilai ?? '' }}
-                            </td>
-                            <td>
-                                {{ $assess->nilai_dampak->nilai ?? '' }}
-                            </td>
-                            <td>
                                 {{ $assess->total ?? '' }}
-                            </td>
-                            <td>
-                                {{ $assess->tindakan_pengendalian ?? '' }}
-                            </td>
-                            <td>
-                                {{ $assess->nilai_kontrol_kemungkinan->nilai ?? '' }}
-                            </td>
-                            <td>
-                                {{ $assess->nilai_kontrol_dampak->nilai ?? '' }}
-                            </td>
-                            <td>
-                                {{ $assess->nilai_kontrol_total ?? '' }}
-                            </td>
-                            <td>
-                                {{ App\Models\Assess::TINDAKAN_SELECT[$assess->tindakan] ?? '' }}
-                            </td>
-                            <td>
-                                {{ $assess->tinjut_penanganan ?? '' }}
-                            </td>
-                            <td>
-                                {{ $assess->persetujuan_tindakan ?? '' }}
-                            </td>
-                            <td>
-                                {{ $assess->target_penyelesaian ?? '' }}
-                            </td>
-                            <td>
-                                {{ App\Models\Assess::STATUS_SELECT[$assess->status] ?? '' }}
-                            </td>
-                            <td>
-                                {{ $assess->penanggung_jawab ?? '' }}
-                            </td>
-                            <td>
-                                {{ $assess->nilai_residu_kemungkinan->nilai ?? '' }}
-                            </td>
-                            <td>
-                                {{ $assess->nilai_residu_dampak->nilai ?? '' }}
-                            </td>
-                            <td>
-                                {{ $assess->nilai_residu_total ?? '' }}
-                            </td>
-                            <td>
-                                {{ App\Models\Assess::TINDAKAN_RESIDU_SELECT[$assess->tindakan_residu] ?? '' }}
-                            </td>
-                            <td>
-                                {{ $assess->tinjut_residual ?? '' }}
                             </td>
                             <td>
                                 @can('assess_show')

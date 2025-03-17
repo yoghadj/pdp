@@ -32,27 +32,6 @@
                                         {{ trans('cruds.kategori.fields.stakeholder') }}
                                     </th>
                                     <th>
-                                        {{ trans('cruds.kategori.fields.kriteria_hukum') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.kategori.fields.kriteria_spesifik') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.kategori.fields.kriteria_besar') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.kategori.fields.kriteria_evaluasi') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.kategori.fields.kriteria_cocok') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.kategori.fields.kriteria_teknologi') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.kategori.fields.kriteria_batas') }}
-                                    </th>
-                                    <th>
                                         {{ trans('cruds.kategori.fields.pia') }}
                                     </th>
                                     <th>
@@ -71,34 +50,6 @@
                                         </td>
                                         <td>
                                             {{ $kategori->stakeholder ?? '' }}
-                                        </td>
-                                        <td>
-                                            <span style="display:none">{{ $kategori->kriteria_hukum ?? '' }}</span>
-                                            <input type="checkbox" disabled="disabled" {{ $kategori->kriteria_hukum ? 'checked' : '' }}>
-                                        </td>
-                                        <td>
-                                            <span style="display:none">{{ $kategori->kriteria_spesifik ?? '' }}</span>
-                                            <input type="checkbox" disabled="disabled" {{ $kategori->kriteria_spesifik ? 'checked' : '' }}>
-                                        </td>
-                                        <td>
-                                            <span style="display:none">{{ $kategori->kriteria_besar ?? '' }}</span>
-                                            <input type="checkbox" disabled="disabled" {{ $kategori->kriteria_besar ? 'checked' : '' }}>
-                                        </td>
-                                        <td>
-                                            <span style="display:none">{{ $kategori->kriteria_evaluasi ?? '' }}</span>
-                                            <input type="checkbox" disabled="disabled" {{ $kategori->kriteria_evaluasi ? 'checked' : '' }}>
-                                        </td>
-                                        <td>
-                                            <span style="display:none">{{ $kategori->kriteria_cocok ?? '' }}</span>
-                                            <input type="checkbox" disabled="disabled" {{ $kategori->kriteria_cocok ? 'checked' : '' }}>
-                                        </td>
-                                        <td>
-                                            <span style="display:none">{{ $kategori->kriteria_teknologi ?? '' }}</span>
-                                            <input type="checkbox" disabled="disabled" {{ $kategori->kriteria_teknologi ? 'checked' : '' }}>
-                                        </td>
-                                        <td>
-                                            <span style="display:none">{{ $kategori->kriteria_batas ?? '' }}</span>
-                                            <input type="checkbox" disabled="disabled" {{ $kategori->kriteria_batas ? 'checked' : '' }}>
                                         </td>
                                         <td>
                                             <span style="display:none">{{ $kategori->pia ?? '' }}</span>
