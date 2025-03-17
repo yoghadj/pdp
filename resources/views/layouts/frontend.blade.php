@@ -132,6 +132,11 @@
                                             {{ trans('cruds.penanganan.title') }}
                                         </a>
                                     @endcan
+                                    @can('employee_access')
+                                        <a class="dropdown-item ml-3" href="{{ route('frontend.employees.index') }}">
+                                            {{ trans('cruds.employee.title') }}
+                                        </a>
+                                    @endcan
                                     @can('pium_access')
                                         <a class="dropdown-item disabled" href="#">
                                             {{ trans('cruds.pium.title') }}
