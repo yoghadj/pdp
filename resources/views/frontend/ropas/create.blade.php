@@ -81,13 +81,16 @@
                                     <div class="form-group">
                                         <label class="required"
                                             for="sub_unit">{{ trans('cruds.ropa.fields.sub_unit') }}</label>
-                                        <input class="form-control" type="text" name="sub_unit" id="sub_unit"
-                                            value="{{ old('sub_unit', '') }}" required>
-                                        @if($errors->has('sub_unit'))
-                                        <div class="invalid-feedback">
-                                            {{ $errors->first('sub_unit') }}
-                                        </div>
-                                        @endif
+                                            <select class="form-control" name="sub_unit" id="sub_unit" required>
+                                                <option value disabled
+                                                    {{ old('sub_unit', null) === null ? 'selected' : '' }}>
+                                                    {{ trans('global.pleaseSelect') }}</option>
+                                                @foreach($unit as $key => $label)
+                                                <option value="{{ $key }}"
+                                                    {{ old('sub_unit', '') === (string) $key ? 'selected' : '' }}>
+                                                    {{ $label }}</option>
+                                                @endforeach
+                                            </select>
                                         <span class="help-block">{{ trans('cruds.ropa.fields.sub_unit_helper') }}</span>
                                     </div>
                                     <div class="form-group">
@@ -104,13 +107,16 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="required" for="pic">{{ trans('cruds.ropa.fields.pic') }}</label>
-                                        <input class="form-control" type="text" name="pic" id="pic"
-                                            value="{{ old('pic', '') }}" required>
-                                        @if($errors->has('pic'))
-                                        <div class="invalid-feedback">
-                                            {{ $errors->first('pic') }}
-                                        </div>
-                                        @endif
+                                        <select class="form-control" name="pic" id="pic" required>
+                                            <option value disabled
+                                                {{ old('pic', null) === null ? 'selected' : '' }}>
+                                                {{ trans('global.pleaseSelect') }}</option>
+                                            @foreach($employee as $key => $label)
+                                            <option value="{{ $key }}"
+                                                {{ old('pic', '') === (string) $key ? 'selected' : '' }}>
+                                                {{ $label }}</option>
+                                            @endforeach
+                                        </select>
                                         <span class="help-block">{{ trans('cruds.ropa.fields.pic_helper') }}</span>
                                     </div>
                                     <div class="form-group">
@@ -1144,7 +1150,7 @@
                                     @endif
                                     <span class="help-block">{{ trans('cruds.ropa.fields.join_pic_helper') }}</span>
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label class="required">{{ trans('cruds.ropa.fields.status') }}</label>
                                     <select class="form-control" name="status" id="status" required>
                                         <option value disabled {{ old('status', null) === null ? 'selected' : '' }}>
@@ -1161,7 +1167,7 @@
                                     </div>
                                     @endif
                                     <span class="help-block">{{ trans('cruds.ropa.fields.status_helper') }}</span>
-                                </div>
+                                </div> --}}
                                 <a class="btn btn-primary" onclick="stepper.previous()"><i
                                         class="fa fa-chevron-left"></i> Previous</a>
                                 <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Submit</button>
