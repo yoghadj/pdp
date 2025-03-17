@@ -78,7 +78,7 @@ class CreateRopasTable extends Migration
             $table->boolean('join_janji')->default(0)->nullable();
             $table->boolean('join_tujuan')->default(0)->nullable();
             $table->boolean('join_pic')->default(0)->nullable();
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

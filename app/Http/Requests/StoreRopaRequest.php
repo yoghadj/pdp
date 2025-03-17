@@ -98,9 +98,6 @@ class StoreRopaRequest extends FormRequest
                 'string',
                 'nullable',
             ],
-            'status' => [
-                'required',
-            ],
         ];
     }
 }

@@ -52,20 +52,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('assesses/destroy', 'AssessController@massDestroy')->name('assesses.massDestroy');
     Route::resource('assesses', 'AssessController');
 
-    // Content Category
-    Route::delete('content-categories/destroy', 'ContentCategoryController@massDestroy')->name('content-categories.massDestroy');
-    Route::resource('content-categories', 'ContentCategoryController');
-
-    // Content Tag
-    Route::delete('content-tags/destroy', 'ContentTagController@massDestroy')->name('content-tags.massDestroy');
-    Route::resource('content-tags', 'ContentTagController');
-
-    // Content Page
-    Route::delete('content-pages/destroy', 'ContentPageController@massDestroy')->name('content-pages.massDestroy');
-    Route::post('content-pages/media', 'ContentPageController@storeMedia')->name('content-pages.storeMedia');
-    Route::post('content-pages/ckmedia', 'ContentPageController@storeCKEditorImages')->name('content-pages.storeCKEditorImages');
-    Route::resource('content-pages', 'ContentPageController');
-
     // Employee
     Route::delete('employees/destroy', 'EmployeeController@massDestroy')->name('employees.massDestroy');
     Route::resource('employees', 'EmployeeController');
@@ -125,20 +111,6 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     // Assess
     Route::delete('assesses/destroy', 'AssessController@massDestroy')->name('assesses.massDestroy');
     Route::resource('assesses', 'AssessController');
-
-    // Content Category
-    Route::delete('content-categories/destroy', 'ContentCategoryController@massDestroy')->name('content-categories.massDestroy');
-    Route::resource('content-categories', 'ContentCategoryController');
-
-    // Content Tag
-    Route::delete('content-tags/destroy', 'ContentTagController@massDestroy')->name('content-tags.massDestroy');
-    Route::resource('content-tags', 'ContentTagController');
-
-    // Content Page
-    Route::delete('content-pages/destroy', 'ContentPageController@massDestroy')->name('content-pages.massDestroy');
-    Route::post('content-pages/media', 'ContentPageController@storeMedia')->name('content-pages.storeMedia');
-    Route::post('content-pages/ckmedia', 'ContentPageController@storeCKEditorImages')->name('content-pages.storeCKEditorImages');
-    Route::resource('content-pages', 'ContentPageController');
 
     // Employee
     Route::delete('employees/destroy', 'EmployeeController@massDestroy')->name('employees.massDestroy');
