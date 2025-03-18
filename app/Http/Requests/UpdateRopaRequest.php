@@ -98,9 +98,6 @@ class UpdateRopaRequest extends FormRequest
                 'string',
                 'nullable',
             ],
-            'status' => [
-                'required',
-            ],
         ];
     }
 }

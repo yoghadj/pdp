@@ -10,54 +10,107 @@
                 </div>
 
                 <div class="card-body">
-
-
                     <form method="POST" action="{{ route("frontend.ropas.store") }}" enctype="multipart/form-data">
                         @method('POST')
                         @csrf
-
-                        <div class="bs-stepper">
-                            <div class="bs-stepper-header" role="tablist">
-                                <!-- your steps here -->
-                                <div class="step" data-target="#section1-part">
-                                    <button type="button" class="step-trigger" role="tab" aria-controls="section1-part"
-                                        id="section1-part-trigger">
-                                        <span class="bs-stepper-circle">1</span>
-                                        <span class="bs-stepper-label">Section 1</span>
-                                    </button>
+                        <div class="form-group">
+                            <label class="required" for="unit_kerja">{{ trans('cruds.ropa.fields.unit_kerja') }}</label>
+                            <input class="form-control" type="text" name="unit_kerja" id="unit_kerja" value="{{ old('unit_kerja', '') }}" required>
+                            @if($errors->has('unit_kerja'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('unit_kerja') }}
                                 </div>
-                                <div class="line"></div>
-                                <div class="step" data-target="#section2-part">
-                                    <button type="button" class="step-trigger" role="tab" aria-controls="section2-part"
-                                        id="section2-part-trigger">
-                                        <span class="bs-stepper-circle">2</span>
-                                        <span class="bs-stepper-label">Section 2</span>
-                                    </button>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.unit_kerja_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="required" for="sub_unit">{{ trans('cruds.ropa.fields.sub_unit') }}</label>
+                            <input class="form-control" type="text" name="sub_unit" id="sub_unit" value="{{ old('sub_unit', '') }}" required>
+                            @if($errors->has('sub_unit'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('sub_unit') }}
                                 </div>
-                                <div class="line"></div>
-                                <div class="step" data-target="#section3-part">
-                                    <button type="button" class="step-trigger" role="tab" aria-controls="section3-part"
-                                        id="section3-part-trigger">
-                                        <span class="bs-stepper-circle">3</span>
-                                        <span class="bs-stepper-label">Section 3</span>
-                                    </button>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.sub_unit_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="required" for="fungsi">{{ trans('cruds.ropa.fields.fungsi') }}</label>
+                            <input class="form-control" type="text" name="fungsi" id="fungsi" value="{{ old('fungsi', '') }}" required>
+                            @if($errors->has('fungsi'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('fungsi') }}
                                 </div>
-                                <div class="line"></div>
-                                <div class="step" data-target="#section4-part">
-                                    <button type="button" class="step-trigger" role="tab" aria-controls="section4-part"
-                                        id="section4-part-trigger">
-                                        <span class="bs-stepper-circle">4</span>
-                                        <span class="bs-stepper-label">Section 4</span>
-                                    </button>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.fungsi_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="required" for="pic">{{ trans('cruds.ropa.fields.pic') }}</label>
+                            <input class="form-control" type="text" name="pic" id="pic" value="{{ old('pic', '') }}" required>
+                            @if($errors->has('pic'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('pic') }}
                                 </div>
-                                <div class="line"></div>
-                                <div class="step" data-target="#section5-part">
-                                    <button type="button" class="step-trigger" role="tab" aria-controls="section5-part"
-                                        id="section5-part-trigger">
-                                        <span class="bs-stepper-circle">5</span>
-                                        <span class="bs-stepper-label">Section 5</span>
-                                    </button>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.pic_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="required" for="proses_bisnis">{{ trans('cruds.ropa.fields.proses_bisnis') }}</label>
+                            <input class="form-control" type="text" name="proses_bisnis" id="proses_bisnis" value="{{ old('proses_bisnis', '') }}" required>
+                            @if($errors->has('proses_bisnis'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('proses_bisnis') }}
                                 </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.proses_bisnis_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="required">{{ trans('cruds.ropa.fields.peran') }}</label>
+                            <select class="form-control" name="peran" id="peran" required>
+                                <option value disabled {{ old('peran', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
+                                @foreach(App\Models\Ropa::PERAN_SELECT as $key => $label)
+                                    <option value="{{ $key }}" {{ old('peran', '') === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
+                                @endforeach
+                            </select>
+                            @if($errors->has('peran'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('peran') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.peran_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="required">{{ trans('cruds.ropa.fields.jenis_data') }}</label>
+                            <select class="form-control" name="jenis_data" id="jenis_data" required>
+                                <option value disabled {{ old('jenis_data', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
+                                @foreach(App\Models\Ropa::JENIS_DATA_SELECT as $key => $label)
+                                    <option value="{{ $key }}" {{ old('jenis_data', '') === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
+                                @endforeach
+                            </select>
+                            @if($errors->has('jenis_data'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('jenis_data') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.jenis_data_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <input type="hidden" name="umum_nama_lengkap" value="0">
+                                <input type="checkbox" name="umum_nama_lengkap" id="umum_nama_lengkap" value="1" {{ old('umum_nama_lengkap', 0) == 1 ? 'checked' : '' }}>
+                                <label for="umum_nama_lengkap">{{ trans('cruds.ropa.fields.umum_nama_lengkap') }}</label>
+                            </div>
+                            @if($errors->has('umum_nama_lengkap'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('umum_nama_lengkap') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.umum_nama_lengkap_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <input type="hidden" name="umum_jenkel" value="0">
+                                <input type="checkbox" name="umum_jenkel" id="umum_jenkel" value="1" {{ old('umum_jenkel', 0) == 1 ? 'checked' : '' }}>
+                                <label for="umum_jenkel">{{ trans('cruds.ropa.fields.umum_jenkel') }}</label>
                             </div>
                             <div class="bs-stepper-content">
                                 <div id="section1-part" class="content" role="tabpanel"
@@ -784,314 +837,45 @@
                                     <a class="btn btn-primary" onclick="stepper.next()"><i
                                             class="fa fa-chevron-right"></i> Next</a>
                                 </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.umum_jenkel_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <input type="hidden" name="umum_kewarganegaraan" value="0">
+                                <input type="checkbox" name="umum_kewarganegaraan" id="umum_kewarganegaraan" value="1" {{ old('umum_kewarganegaraan', 0) == 1 ? 'checked' : '' }}>
+                                <label for="umum_kewarganegaraan">{{ trans('cruds.ropa.fields.umum_kewarganegaraan') }}</label>
                             </div>
-                            <div id="section5-part" class="content" role="tabpanel"
-                                aria-labelledby="section5-part-trigger">
-
-                                <h3>Landasan Pemrosesan Data Pribadi</h3>
-                                <div class="form-group">
-                                    <div>
-                                        <input type="hidden" name="konsen_kumpul" value="0">
-                                        <input type="checkbox" name="konsen_kumpul" id="konsen_kumpul" value="1"
-                                            {{ old('konsen_kumpul', 0) == 1 ? 'checked' : '' }}>
-                                        <label
-                                            for="konsen_kumpul">{{ trans('cruds.ropa.fields.konsen_kumpul') }}</label>
-                                    </div>
-                                    @if($errors->has('konsen_kumpul'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('konsen_kumpul') }}
-                                    </div>
-                                    @endif
-                                    <span
-                                        class="help-block">{{ trans('cruds.ropa.fields.konsen_kumpul_helper') }}</span>
+                            @if($errors->has('umum_kewarganegaraan'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('umum_kewarganegaraan') }}
                                 </div>
-                                <div class="form-group">
-                                    <label>{{ trans('cruds.ropa.fields.konsen_mekanisme') }}</label>
-                                    <select class="form-control" name="konsen_mekanisme" id="konsen_mekanisme">
-                                        <option value disabled
-                                            {{ old('konsen_mekanisme', null) === null ? 'selected' : '' }}>
-                                            {{ trans('global.pleaseSelect') }}</option>
-                                        @foreach(App\Models\Ropa::KONSEN_MEKANISME_SELECT as $key => $label)
-                                        <option value="{{ $key }}"
-                                            {{ old('konsen_mekanisme', '') === (string) $key ? 'selected' : '' }}>
-                                            {{ $label }}</option>
-                                        @endforeach
-                                    </select>
-                                    @if($errors->has('konsen_mekanisme'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('konsen_mekanisme') }}
-                                    </div>
-                                    @endif
-                                    <span
-                                        class="help-block">{{ trans('cruds.ropa.fields.konsen_mekanisme_helper') }}</span>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.umum_kewarganegaraan_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <input type="hidden" name="umum_agama" value="0">
+                                <input type="checkbox" name="umum_agama" id="umum_agama" value="1" {{ old('umum_agama', 0) == 1 ? 'checked' : '' }}>
+                                <label for="umum_agama">{{ trans('cruds.ropa.fields.umum_agama') }}</label>
+                            </div>
+                            @if($errors->has('umum_agama'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('umum_agama') }}
                                 </div>
-                                <div class="form-group">
-                                    <label class="required"
-                                        for="konsen_wajib">{{ trans('cruds.ropa.fields.konsen_wajib') }}</label>
-                                    <input class="form-control" type="text" name="konsen_wajib" id="konsen_wajib"
-                                        value="{{ old('konsen_wajib', '') }}" required>
-                                    @if($errors->has('konsen_wajib'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('konsen_wajib') }}
-                                    </div>
-                                    @endif
-                                    <span class="help-block">{{ trans('cruds.ropa.fields.konsen_wajib_helper') }}</span>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.umum_agama_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <input type="hidden" name="umum_kawin" value="0">
+                                <input type="checkbox" name="umum_kawin" id="umum_kawin" value="1" {{ old('umum_kawin', 0) == 1 ? 'checked' : '' }}>
+                                <label for="umum_kawin">{{ trans('cruds.ropa.fields.umum_kawin') }}</label>
+                            </div>
+                            @if($errors->has('umum_kawin'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('umum_kawin') }}
                                 </div>
-                                <div class="form-group">
-                                    <div>
-                                        <input type="hidden" name="konsen_aturan" value="0">
-                                        <input type="checkbox" name="konsen_aturan" id="konsen_aturan" value="1"
-                                            {{ old('konsen_aturan', 0) == 1 ? 'checked' : '' }}>
-                                        <label
-                                            for="konsen_aturan">{{ trans('cruds.ropa.fields.konsen_aturan') }}</label>
-                                    </div>
-                                    @if($errors->has('konsen_aturan'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('konsen_aturan') }}
-                                    </div>
-                                    @endif
-                                    <span
-                                        class="help-block">{{ trans('cruds.ropa.fields.konsen_aturan_helper') }}</span>
-                                </div>
-                                <div class="form-group">
-                                    <div>
-                                        <input type="hidden" name="konsen_vital" value="0">
-                                        <input type="checkbox" name="konsen_vital" id="konsen_vital" value="1"
-                                            {{ old('konsen_vital', 0) == 1 ? 'checked' : '' }}>
-                                        <label for="konsen_vital">{{ trans('cruds.ropa.fields.konsen_vital') }}</label>
-                                    </div>
-                                    @if($errors->has('konsen_vital'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('konsen_vital') }}
-                                    </div>
-                                    @endif
-                                    <span class="help-block">{{ trans('cruds.ropa.fields.konsen_vital_helper') }}</span>
-                                </div>
-                                <div class="form-group">
-                                    <div>
-                                        <input type="hidden" name="konsen_umum" value="0">
-                                        <input type="checkbox" name="konsen_umum" id="konsen_umum" value="1"
-                                            {{ old('konsen_umum', 0) == 1 ? 'checked' : '' }}>
-                                        <label for="konsen_umum">{{ trans('cruds.ropa.fields.konsen_umum') }}</label>
-                                    </div>
-                                    @if($errors->has('konsen_umum'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('konsen_umum') }}
-                                    </div>
-                                    @endif
-                                    <span class="help-block">{{ trans('cruds.ropa.fields.konsen_umum_helper') }}</span>
-                                </div>
-                                <div class="form-group">
-                                    <div>
-                                        <input type="hidden" name="konsen_lain" value="0">
-                                        <input type="checkbox" name="konsen_lain" id="konsen_lain" value="1"
-                                            {{ old('konsen_lain', 0) == 1 ? 'checked' : '' }}>
-                                        <label for="konsen_lain">{{ trans('cruds.ropa.fields.konsen_lain') }}</label>
-                                    </div>
-                                    @if($errors->has('konsen_lain'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('konsen_lain') }}
-                                    </div>
-                                    @endif
-                                    <span class="help-block">{{ trans('cruds.ropa.fields.konsen_lain_helper') }}</span>
-                                </div>
-                                <div class="form-group">
-                                    <label class="required">{{ trans('cruds.ropa.fields.konsen_simpan') }}</label>
-                                    <select class="form-control" name="konsen_simpan" id="konsen_simpan" required>
-                                        <option value disabled
-                                            {{ old('konsen_simpan', null) === null ? 'selected' : '' }}>
-                                            {{ trans('global.pleaseSelect') }}</option>
-                                        @foreach(App\Models\Ropa::KONSEN_SIMPAN_SELECT as $key => $label)
-                                        <option value="{{ $key }}"
-                                            {{ old('konsen_simpan', '') === (string) $key ? 'selected' : '' }}>
-                                            {{ $label }}</option>
-                                        @endforeach
-                                    </select>
-                                    @if($errors->has('konsen_simpan'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('konsen_simpan') }}
-                                    </div>
-                                    @endif
-                                    <span
-                                        class="help-block">{{ trans('cruds.ropa.fields.konsen_simpan_helper') }}</span>
-                                </div>
-
-
-                                <h3>Aplikasi</h3>
-                                <div class="form-group">
-                                    <label for="aplikasi">{{ trans('cruds.ropa.fields.aplikasi') }}</label>
-                                    <input class="form-control" type="text" name="aplikasi" id="aplikasi"
-                                        value="{{ old('aplikasi', '') }}">
-                                    @if($errors->has('aplikasi'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('aplikasi') }}
-                                    </div>
-                                    @endif
-                                    <span class="help-block">{{ trans('cruds.ropa.fields.aplikasi_helper') }}</span>
-                                </div>
-
-                                <h3>Implementasi Hak Subjek Data Pribadi </h3>
-                                <div class="form-group">
-                                    <div>
-                                        <input type="hidden" name="implementasi_tujuan" value="0">
-                                        <input type="checkbox" name="implementasi_tujuan" id="implementasi_tujuan"
-                                            value="1" {{ old('implementasi_tujuan', 0) == 1 ? 'checked' : '' }}>
-                                        <label
-                                            for="implementasi_tujuan">{{ trans('cruds.ropa.fields.implementasi_tujuan') }}</label>
-                                    </div>
-                                    @if($errors->has('implementasi_tujuan'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('implementasi_tujuan') }}
-                                    </div>
-                                    @endif
-                                    <span
-                                        class="help-block">{{ trans('cruds.ropa.fields.implementasi_tujuan_helper') }}</span>
-                                </div>
-                                <div class="form-group">
-                                    <div>
-                                        <input type="hidden" name="implementasi_update" value="0">
-                                        <input type="checkbox" name="implementasi_update" id="implementasi_update"
-                                            value="1" {{ old('implementasi_update', 0) == 1 ? 'checked' : '' }}>
-                                        <label
-                                            for="implementasi_update">{{ trans('cruds.ropa.fields.implementasi_update') }}</label>
-                                    </div>
-                                    @if($errors->has('implementasi_update'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('implementasi_update') }}
-                                    </div>
-                                    @endif
-                                    <span
-                                        class="help-block">{{ trans('cruds.ropa.fields.implementasi_update_helper') }}</span>
-                                </div>
-                                <div class="form-group">
-                                    <div>
-                                        <input type="hidden" name="implementasi_akses" value="0">
-                                        <input type="checkbox" name="implementasi_akses" id="implementasi_akses"
-                                            value="1" {{ old('implementasi_akses', 0) == 1 ? 'checked' : '' }}>
-                                        <label
-                                            for="implementasi_akses">{{ trans('cruds.ropa.fields.implementasi_akses') }}</label>
-                                    </div>
-                                    @if($errors->has('implementasi_akses'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('implementasi_akses') }}
-                                    </div>
-                                    @endif
-                                    <span
-                                        class="help-block">{{ trans('cruds.ropa.fields.implementasi_akses_helper') }}</span>
-                                </div>
-                                <div class="form-group">
-                                    <div>
-                                        <input type="hidden" name="implementasi_hapus" value="0">
-                                        <input type="checkbox" name="implementasi_hapus" id="implementasi_hapus"
-                                            value="1" {{ old('implementasi_hapus', 0) == 1 ? 'checked' : '' }}>
-                                        <label
-                                            for="implementasi_hapus">{{ trans('cruds.ropa.fields.implementasi_hapus') }}</label>
-                                    </div>
-                                    @if($errors->has('implementasi_hapus'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('implementasi_hapus') }}
-                                    </div>
-                                    @endif
-                                    <span
-                                        class="help-block">{{ trans('cruds.ropa.fields.implementasi_hapus_helper') }}</span>
-                                </div>
-                                <div class="form-group">
-                                    <div>
-                                        <input type="hidden" name="implementasi_tarik" value="0">
-                                        <input type="checkbox" name="implementasi_tarik" id="implementasi_tarik"
-                                            value="1" {{ old('implementasi_tarik', 0) == 1 ? 'checked' : '' }}>
-                                        <label
-                                            for="implementasi_tarik">{{ trans('cruds.ropa.fields.implementasi_tarik') }}</label>
-                                    </div>
-                                    @if($errors->has('implementasi_tarik'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('implementasi_tarik') }}
-                                    </div>
-                                    @endif
-                                    <span
-                                        class="help-block">{{ trans('cruds.ropa.fields.implementasi_tarik_helper') }}</span>
-                                </div>
-                                <div class="form-group">
-                                    <div>
-                                        <input type="hidden" name="implementasi_berat" value="0">
-                                        <input type="checkbox" name="implementasi_berat" id="implementasi_berat"
-                                            value="1" {{ old('implementasi_berat', 0) == 1 ? 'checked' : '' }}>
-                                        <label
-                                            for="implementasi_berat">{{ trans('cruds.ropa.fields.implementasi_berat') }}</label>
-                                    </div>
-                                    @if($errors->has('implementasi_berat'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('implementasi_berat') }}
-                                    </div>
-                                    @endif
-                                    <span
-                                        class="help-block">{{ trans('cruds.ropa.fields.implementasi_berat_helper') }}</span>
-                                </div>
-                                <div class="form-group">
-                                    <div>
-                                        <input type="hidden" name="implementasi_tunda" value="0">
-                                        <input type="checkbox" name="implementasi_tunda" id="implementasi_tunda"
-                                            value="1" {{ old('implementasi_tunda', 0) == 1 ? 'checked' : '' }}>
-                                        <label
-                                            for="implementasi_tunda">{{ trans('cruds.ropa.fields.implementasi_tunda') }}</label>
-                                    </div>
-                                    @if($errors->has('implementasi_tunda'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('implementasi_tunda') }}
-                                    </div>
-                                    @endif
-                                    <span
-                                        class="help-block">{{ trans('cruds.ropa.fields.implementasi_tunda_helper') }}</span>
-                                </div>
-                                <div class="form-group">
-                                    <div>
-                                        <input type="hidden" name="implementasi_rugi" value="0">
-                                        <input type="checkbox" name="implementasi_rugi" id="implementasi_rugi" value="1"
-                                            {{ old('implementasi_rugi', 0) == 1 ? 'checked' : '' }}>
-                                        <label
-                                            for="implementasi_rugi">{{ trans('cruds.ropa.fields.implementasi_rugi') }}</label>
-                                    </div>
-                                    @if($errors->has('implementasi_rugi'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('implementasi_rugi') }}
-                                    </div>
-                                    @endif
-                                    <span
-                                        class="help-block">{{ trans('cruds.ropa.fields.implementasi_rugi_helper') }}</span>
-                                </div>
-                                <div class="form-group">
-                                    <div>
-                                        <input type="hidden" name="implementasi_pakai" value="0">
-                                        <input type="checkbox" name="implementasi_pakai" id="implementasi_pakai"
-                                            value="1" {{ old('implementasi_pakai', 0) == 1 ? 'checked' : '' }}>
-                                        <label
-                                            for="implementasi_pakai">{{ trans('cruds.ropa.fields.implementasi_pakai') }}</label>
-                                    </div>
-                                    @if($errors->has('implementasi_pakai'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('implementasi_pakai') }}
-                                    </div>
-                                    @endif
-                                    <span
-                                        class="help-block">{{ trans('cruds.ropa.fields.implementasi_pakai_helper') }}</span>
-                                </div>
-                                <div class="form-group">
-                                    <div>
-                                        <input type="hidden" name="implementasi_kirim" value="0">
-                                        <input type="checkbox" name="implementasi_kirim" id="implementasi_kirim"
-                                            value="1" {{ old('implementasi_kirim', 0) == 1 ? 'checked' : '' }}>
-                                        <label
-                                            for="implementasi_kirim">{{ trans('cruds.ropa.fields.implementasi_kirim') }}</label>
-                                    </div>
-                                    @if($errors->has('implementasi_kirim'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('implementasi_kirim') }}
-                                    </div>
-                                    @endif
-                                    <span
-                                        class="help-block">{{ trans('cruds.ropa.fields.implementasi_kirim_helper') }}</span>
-                                </div>
-
 
                                 <h3>Joint Controller</h3>
                                 <div class="form-group">
@@ -1172,23 +956,256 @@
                                         class="fa fa-chevron-left"></i> Previous</a>
                                 <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Submit</button>
                             </div>
+                            @if($errors->has('konsen_vital'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('konsen_vital') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.konsen_vital_helper') }}</span>
                         </div>
+                        <div class="form-group">
+                            <div>
+                                <input type="hidden" name="konsen_umum" value="0">
+                                <input type="checkbox" name="konsen_umum" id="konsen_umum" value="1" {{ old('konsen_umum', 0) == 1 ? 'checked' : '' }}>
+                                <label for="konsen_umum">{{ trans('cruds.ropa.fields.konsen_umum') }}</label>
+                            </div>
+                            @if($errors->has('konsen_umum'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('konsen_umum') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.konsen_umum_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <input type="hidden" name="konsen_lain" value="0">
+                                <input type="checkbox" name="konsen_lain" id="konsen_lain" value="1" {{ old('konsen_lain', 0) == 1 ? 'checked' : '' }}>
+                                <label for="konsen_lain">{{ trans('cruds.ropa.fields.konsen_lain') }}</label>
+                            </div>
+                            @if($errors->has('konsen_lain'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('konsen_lain') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.konsen_lain_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="required">{{ trans('cruds.ropa.fields.konsen_simpan') }}</label>
+                            <select class="form-control" name="konsen_simpan" id="konsen_simpan" required>
+                                <option value disabled {{ old('konsen_simpan', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
+                                @foreach(App\Models\Ropa::KONSEN_SIMPAN_SELECT as $key => $label)
+                                    <option value="{{ $key }}" {{ old('konsen_simpan', '') === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
+                                @endforeach
+                            </select>
+                            @if($errors->has('konsen_simpan'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('konsen_simpan') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.konsen_simpan_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="aplikasi">{{ trans('cruds.ropa.fields.aplikasi') }}</label>
+                            <input class="form-control" type="text" name="aplikasi" id="aplikasi" value="{{ old('aplikasi', '') }}">
+                            @if($errors->has('aplikasi'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('aplikasi') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.aplikasi_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <input type="hidden" name="implementasi_tujuan" value="0">
+                                <input type="checkbox" name="implementasi_tujuan" id="implementasi_tujuan" value="1" {{ old('implementasi_tujuan', 0) == 1 ? 'checked' : '' }}>
+                                <label for="implementasi_tujuan">{{ trans('cruds.ropa.fields.implementasi_tujuan') }}</label>
+                            </div>
+                            @if($errors->has('implementasi_tujuan'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('implementasi_tujuan') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.implementasi_tujuan_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <input type="hidden" name="implementasi_update" value="0">
+                                <input type="checkbox" name="implementasi_update" id="implementasi_update" value="1" {{ old('implementasi_update', 0) == 1 ? 'checked' : '' }}>
+                                <label for="implementasi_update">{{ trans('cruds.ropa.fields.implementasi_update') }}</label>
+                            </div>
+                            @if($errors->has('implementasi_update'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('implementasi_update') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.implementasi_update_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <input type="hidden" name="implementasi_akses" value="0">
+                                <input type="checkbox" name="implementasi_akses" id="implementasi_akses" value="1" {{ old('implementasi_akses', 0) == 1 ? 'checked' : '' }}>
+                                <label for="implementasi_akses">{{ trans('cruds.ropa.fields.implementasi_akses') }}</label>
+                            </div>
+                            @if($errors->has('implementasi_akses'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('implementasi_akses') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.implementasi_akses_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <input type="hidden" name="implementasi_hapus" value="0">
+                                <input type="checkbox" name="implementasi_hapus" id="implementasi_hapus" value="1" {{ old('implementasi_hapus', 0) == 1 ? 'checked' : '' }}>
+                                <label for="implementasi_hapus">{{ trans('cruds.ropa.fields.implementasi_hapus') }}</label>
+                            </div>
+                            @if($errors->has('implementasi_hapus'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('implementasi_hapus') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.implementasi_hapus_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <input type="hidden" name="implementasi_tarik" value="0">
+                                <input type="checkbox" name="implementasi_tarik" id="implementasi_tarik" value="1" {{ old('implementasi_tarik', 0) == 1 ? 'checked' : '' }}>
+                                <label for="implementasi_tarik">{{ trans('cruds.ropa.fields.implementasi_tarik') }}</label>
+                            </div>
+                            @if($errors->has('implementasi_tarik'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('implementasi_tarik') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.implementasi_tarik_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <input type="hidden" name="implementasi_berat" value="0">
+                                <input type="checkbox" name="implementasi_berat" id="implementasi_berat" value="1" {{ old('implementasi_berat', 0) == 1 ? 'checked' : '' }}>
+                                <label for="implementasi_berat">{{ trans('cruds.ropa.fields.implementasi_berat') }}</label>
+                            </div>
+                            @if($errors->has('implementasi_berat'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('implementasi_berat') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.implementasi_berat_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <input type="hidden" name="implementasi_tunda" value="0">
+                                <input type="checkbox" name="implementasi_tunda" id="implementasi_tunda" value="1" {{ old('implementasi_tunda', 0) == 1 ? 'checked' : '' }}>
+                                <label for="implementasi_tunda">{{ trans('cruds.ropa.fields.implementasi_tunda') }}</label>
+                            </div>
+                            @if($errors->has('implementasi_tunda'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('implementasi_tunda') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.implementasi_tunda_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <input type="hidden" name="implementasi_rugi" value="0">
+                                <input type="checkbox" name="implementasi_rugi" id="implementasi_rugi" value="1" {{ old('implementasi_rugi', 0) == 1 ? 'checked' : '' }}>
+                                <label for="implementasi_rugi">{{ trans('cruds.ropa.fields.implementasi_rugi') }}</label>
+                            </div>
+                            @if($errors->has('implementasi_rugi'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('implementasi_rugi') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.implementasi_rugi_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <input type="hidden" name="implementasi_pakai" value="0">
+                                <input type="checkbox" name="implementasi_pakai" id="implementasi_pakai" value="1" {{ old('implementasi_pakai', 0) == 1 ? 'checked' : '' }}>
+                                <label for="implementasi_pakai">{{ trans('cruds.ropa.fields.implementasi_pakai') }}</label>
+                            </div>
+                            @if($errors->has('implementasi_pakai'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('implementasi_pakai') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.implementasi_pakai_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <input type="hidden" name="implementasi_kirim" value="0">
+                                <input type="checkbox" name="implementasi_kirim" id="implementasi_kirim" value="1" {{ old('implementasi_kirim', 0) == 1 ? 'checked' : '' }}>
+                                <label for="implementasi_kirim">{{ trans('cruds.ropa.fields.implementasi_kirim') }}</label>
+                            </div>
+                            @if($errors->has('implementasi_kirim'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('implementasi_kirim') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.implementasi_kirim_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <input type="hidden" name="join_pihak" value="0">
+                                <input type="checkbox" name="join_pihak" id="join_pihak" value="1" {{ old('join_pihak', 0) == 1 ? 'checked' : '' }}>
+                                <label for="join_pihak">{{ trans('cruds.ropa.fields.join_pihak') }}</label>
+                            </div>
+                            @if($errors->has('join_pihak'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('join_pihak') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.join_pihak_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <input type="hidden" name="join_janji" value="0">
+                                <input type="checkbox" name="join_janji" id="join_janji" value="1" {{ old('join_janji', 0) == 1 ? 'checked' : '' }}>
+                                <label for="join_janji">{{ trans('cruds.ropa.fields.join_janji') }}</label>
+                            </div>
+                            @if($errors->has('join_janji'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('join_janji') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.join_janji_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <input type="hidden" name="join_tujuan" value="0">
+                                <input type="checkbox" name="join_tujuan" id="join_tujuan" value="1" {{ old('join_tujuan', 0) == 1 ? 'checked' : '' }}>
+                                <label for="join_tujuan">{{ trans('cruds.ropa.fields.join_tujuan') }}</label>
+                            </div>
+                            @if($errors->has('join_tujuan'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('join_tujuan') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.join_tujuan_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <input type="hidden" name="join_pic" value="0">
+                                <input type="checkbox" name="join_pic" id="join_pic" value="1" {{ old('join_pic', 0) == 1 ? 'checked' : '' }}>
+                                <label for="join_pic">{{ trans('cruds.ropa.fields.join_pic') }}</label>
+                            </div>
+                            @if($errors->has('join_pic'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('join_pic') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.ropa.fields.join_pic_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-danger" type="submit">
+                                {{ trans('global.save') }}
+                            </button>
+                        </div>
+                    </form>
                 </div>
-                </form>
             </div>
-        </div>
 
+        </div>
     </div>
 </div>
-</div>
-@endsection
-
-@section('scripts')
-
-<script>
-    // BS-Stepper Init
-    document.addEventListener('DOMContentLoaded', function () {
-        window.stepper = new Stepper(document.querySelector('.bs-stepper'))
-    })
-</script>
 @endsection

@@ -27,7 +27,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/css/perfect-scrollbar.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bs-stepper/dist/css/bs-stepper.min.css" rel="stylesheet" />
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
     @yield('styles')
 </head>
@@ -153,26 +152,6 @@
                                             {{ trans('cruds.assess.title') }}
                                         </a>
                                     @endcan
-                                    @can('content_management_access')
-                                        <a class="dropdown-item disabled" href="#">
-                                            {{ trans('cruds.contentManagement.title') }}
-                                        </a>
-                                    @endcan
-                                    @can('content_category_access')
-                                        <a class="dropdown-item ml-3" href="{{ route('frontend.content-categories.index') }}">
-                                            {{ trans('cruds.contentCategory.title') }}
-                                        </a>
-                                    @endcan
-                                    @can('content_tag_access')
-                                        <a class="dropdown-item ml-3" href="{{ route('frontend.content-tags.index') }}">
-                                            {{ trans('cruds.contentTag.title') }}
-                                        </a>
-                                    @endcan
-                                    @can('content_page_access')
-                                        <a class="dropdown-item ml-3" href="{{ route('frontend.content-pages.index') }}">
-                                            {{ trans('cruds.contentPage.title') }}
-                                        </a>
-                                    @endcan
 
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -239,7 +218,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bs-stepper/dist/js/bs-stepper.min.js"></script>
 <script src="{{ asset('js/main.js') }}"></script>
 @yield('scripts')
 
