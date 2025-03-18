@@ -7,6 +7,8 @@ use App\Http\Requests\MassDestroyRopaRequest;
 use App\Http\Requests\StoreRopaRequest;
 use App\Http\Requests\UpdateRopaRequest;
 use App\Models\Ropa;
+use App\Models\Employee;
+use App\Models\Organization;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,11 +28,16 @@ class RopaController extends Controller
     {
         abort_if(Gate::denies('ropa_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('frontend.ropas.create');
+        $data['organization'] = Organization::pluck('name','code');
+        $data['unit'] = Employee::distinct('position_code')->where('position_code','like','%01')->pluck('position_name','position_code');
+        $data['employee'] = Employee::where('position_code','<>','-')->pluck('name','nik');
+        return view('frontend.ropas.create',$data);
     }
 
     public function store(StoreRopaRequest $request)
     {
+        
+        $request->merge(['status' => 1]);
         $ropa = Ropa::create($request->all());
 
         return redirect()->route('frontend.ropas.index');
